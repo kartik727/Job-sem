@@ -1,0 +1,12 @@
+package Knapsack;
+
+public class knapsack {
+	public static void main (String[] args){
+		int[] wts = {10, 20, 30};
+		int[] vals = {60, 100, 120};
+		int W = 50;
+		
+		System.out.println("Run Successful!");
+	}
+
+}
