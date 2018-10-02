@@ -1,0 +1,47 @@
+package Sub_Sequence;
+
+public class LIS {
+
+	public static void main(String[] args) {
+		int[] seq = {10, 22, 9, 33, 21, 50, 41, 60};
+		
+		lis_finder lf = new lis_finder(seq);
+		
+		System.out.println(lf.ans());
+
+	}
+
+}
+
+class lis_finder{
+	private final int[] seq;
+	private final int seq_len;
+	private int big_max_lis;
+	
+	public lis_finder(int[] seq){
+		this.seq = seq.clone();
+		seq_len = seq.length;
+		
+		big_max_lis = 1;
+		find_lis(seq_len);
+	}
+	
+	public int find_lis(int n){
+		if(n == 1)
+			return 1;
+		
+		int max_lis = 1;
+		for(int i = 0; i < n-1; i++){
+			int temp = find_lis(i+1);
+			if(seq[i] < seq[n-1] && temp + 1 > max_lis)
+				max_lis = temp + 1;
+		}
+		
+		big_max_lis = (max_lis > big_max_lis) ? max_lis : big_max_lis;
+		return max_lis;
+	}
+	
+	public int ans(){
+		return big_max_lis;
+	}
+}

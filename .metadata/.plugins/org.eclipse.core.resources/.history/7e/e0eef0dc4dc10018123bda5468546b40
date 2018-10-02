@@ -1,0 +1,21 @@
+package Fibonacci;
+
+public class Fib {
+	public static void main(String[] args){
+		int N = 9;
+		//int N1 = fib_reuse(N);
+		int N2 = fib_noReuse(N);
+		
+		System.out.println(N + " " + "N1" + " " + N2);
+	}
+	
+	public static int fib_noReuse(int n){
+		if(n == 1)
+			return 0;
+		
+		if(n == 2)
+			return 1;
+		
+		return fib_noReuse(n-1) + fib_noReuse(n-2);
+	}
+}
